@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    HomePage
+{% endblock title %}
+    
+    {% block content %}
+    <center>
+<h1>Hello {{request.user | title}}</h1>
+{% load humanize %}
+
+{% for i in posts %}
+  
+    
+  <div class="container border shadow-lg p-3 mb-5 bg-white rounded">
+        
+        @{{i.user}}
+       <b> <p> {{i.status}}</p></b>
+        {{i.posted_date | naturaltime}} <br>
+       liked by {{i.no_of_likes}} people
+        <br><br>
+        
+        <button data-bs-toggle="collapse" data-bs-target="#demo">More options</button>
+
+<div id="demo" class="collapse">
+<ul>
+    <li><a href="{% url 'post' slug=i.slug %}">ReadMore</a></li>
+    
+    {% if i.user == request.user %}
+        
+    
+    <li><a href="{% url 'editpost' slug=i.slug %}">Edit</a></li>
+    <li><a href="{% url 'delete' slug=i.slug %}">Delete</a></li>
+    {% endif %}
+</ul>
+</div>
+    </div>
+{% endfor %}
+</center>
+
+
+
+    {% endblock content %}
+        

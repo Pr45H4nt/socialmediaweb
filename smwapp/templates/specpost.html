@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{post.status}}
+{% endblock title %}
+
+
+{% block content %}
+{% load humanize %}
+
+<div class="container border shadow-lg p-3 mb-5 bg-white rounded">
+    
+    @{{post.user}}
+    &#10084; {{post.no_of_likes}} 
+    <hr>
+        <b> {{post.status}}</b>
+        <hr>
+        {{post.posted_date | naturaltime}}
+
+        <br><br>
+        
+            
+            {% if liked %}
+            
+            <a href="{% url 'like' slug=post.slug %}" style="text-decoration: none; size: 700px;">unlike</a> <br> &#x2611;
+            {% else %}
+            <a href="{% url 'like' slug=post.slug %}" style="text-decoration: none; size: 700px;">like</a> <br>
+            {% endif %}
+        <button data-bs-toggle="collapse" data-bs-target="#demo">More options</button>
+
+<div id="demo" class="collapse">
+<ul>
+    
+    {% if post.user == request.user %}
+        
+    
+    <li><a href="{% url 'editpost' slug=post.slug %}">Edit</a></li>
+    <li><a href="{% url 'delete' slug=post.slug %}">Delete</a></li>
+    {% else %}
+    you are not user of this post
+    {% endif %}
+</ul>
+</div>
+    </div>
+<hr>
+<b>comments</b>
+<hr>
+{% for c in comments %}
+    <div class="container border">
+        <b>@{{c.user}}</b> <br>
+        {{c.comment}} <br> <br>
+       <i> {{c.posted_date | naturaltime}}</i> <br> <br>
+       
+       {% if c.user == request.user %}
+        <a href="{% url 'deletecomment' id=c.id %}">delete</a>
+       {% endif %}
+        
+    </div>
+{% endfor %}
+<br> <br>
+   <center> 
+<div class="container border shadow-lg p-3 mb-5 bg-white rounded">
+    <form action="" method="post">
+      {% csrf_token %}
+          {{form.error}}
+        {% for fields in form %}
+        <div class="mb-3 mt-3">
+          {{fields.label}} <br>
+          {{fields}}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</center>
+    </div>
+
+
+
+{% endblock content %}
+    
