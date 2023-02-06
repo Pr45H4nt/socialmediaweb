@@ -1,0 +1,2 @@
+# socialmediaweb
+I created a Django-based social media web application that allows users to perform various CRUD operations. The application also features a commenting system, which allows users to interact with one another. Additionally, the application has a robust user authentication system that ensures that only authorized users can access the platform. The web application is designed for opinion posting, allowing users to express their thoughts and ideas on various topics.
