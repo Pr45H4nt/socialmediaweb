@@ -19,7 +19,10 @@ This project is a Django-based social media web application designed for users t
    - Users can comment on each other’s posts, encouraging community interaction and discussions.
    - Comments can be created, read, and deleted, allowing dynamic conversations.
 
-4. **Opinion Posting**:
+4. **Like/Dislike System**: 
+   - Implement a like/dislike feature to allow users to react to posts.
+
+5. **Opinion Posting**:
    - The platform is specifically designed for users to post their thoughts and opinions on a wide range of topics.
    - Users can freely express themselves and engage in meaningful exchanges.
 
@@ -34,17 +37,14 @@ This project is a Django-based social media web application designed for users t
 
 The project follows Django's default structure with additional folders for templates and static files.
 
-- **Authentication**: Manages user authentication and authorization.
-- **Posts**: Handles CRUD functionality for user posts.
-- **Comments**: Supports user interactions through comments on posts.
 
 ## Setup and Installation
 
 1. **Clone the repository** and navigate to the project directory:
 
    ```bash
-   git clone <repository-link>
-   cd django-social-media-app
+   git clone https://github.com/Pr45H4nt/socialmediaweb.git
+   cd socialmediaweb
    ```
 
 2. **Create a virtual environment** and activate it:
@@ -83,8 +83,6 @@ The project follows Django's default structure with additional folders for templ
 - **Logout**: Users can securely log out when done.
 
 ## Future Enhancements
-
-- **Like/Dislike System**: Implement a like/dislike feature to allow users to react to posts.
 - **Notification System**: Add notifications for new comments or interactions on user posts.
 - **Profile Customization**: Allow users to add profile pictures and bio information.
 
@@ -92,6 +90,3 @@ The project follows Django's default structure with additional folders for templ
 
 Prashant Paneru
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
