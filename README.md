@@ -43,7 +43,7 @@ The project follows Django's default structure with additional folders for templ
 1. **Clone the repository** and navigate to the project directory:
 
    ```bash
-   git clone https://github.com/Pr45H4nt/socialmediaweb.git
+   git clone https://github.com/Pr45H4nt/SaySomething.git
    cd socialmediaweb
    ```
 
